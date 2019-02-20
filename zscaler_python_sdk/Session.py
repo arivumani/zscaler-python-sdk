@@ -74,6 +74,7 @@ class Session(object):
 			self._set_header()
 		)
 		self.jsessionid = self._parse_jsessionid(res.headers['Set-Cookie'])        
+		return res
 
 
 	def _handle_response(self, response, content):

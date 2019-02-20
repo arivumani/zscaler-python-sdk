@@ -75,7 +75,8 @@ class Auth(object):
 
 	def authenticate_partner_api(self):
 		self._set_obfuscateApiKey(self.partner_api_key)
-		self._get_jsessionid('partner')
+		res = self._get_jsessionid('partner')
+		return res
 
 
 	def set_cloud(self, cloud):
