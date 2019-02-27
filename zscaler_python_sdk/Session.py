@@ -65,8 +65,8 @@ class Session(object):
 				'timestamp' : self.ts
 			}	
 
-		if self.debug:
-			logging.debug("HTTP BODY: {}".format(body))	
+		#if self.debug:
+		#	logging.debug("HTTP BODY: {}".format(body))	
 
 		res = self._perform_post_request(
 			uri,
@@ -74,6 +74,7 @@ class Session(object):
 			self._set_header()
 		)
 		self.jsessionid = self._parse_jsessionid(res.headers['Set-Cookie'])        
+		return res
 
 
 	def _handle_response(self, response, content):
@@ -119,9 +120,8 @@ class Session(object):
 	
 		attempt = json.dumps(body, sort_keys=True, indent=4, separators=(',', ': '))
 		if self.debug:
-			logging.debug("ATTEMPTING POST (URI): {}\nPOST BODY: {}".format(
-				uri,
-				attempt)
+			logging.debug("ATTEMPTING POST (URI): {}".format(
+				uri)
 			)	
 		res = self.session.post(
 			uri, 
