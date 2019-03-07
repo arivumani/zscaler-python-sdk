@@ -9,7 +9,7 @@ class Locations(object):
 
 	def extract_location_id(self, json_response):
 
-		data = json.loads(json_response)
+		data = json_response
 		if self.debug:
 			logging.debug("Extract Location ID: {}".format(data['id']))
 		return data['id']

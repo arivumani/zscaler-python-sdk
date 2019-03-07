@@ -78,6 +78,8 @@ class Auth(object):
 		res = self._get_jsessionid('partner')
 		return res
 
+	def logout(self):
+		self._logout()
 
 	def set_cloud(self, cloud):
 

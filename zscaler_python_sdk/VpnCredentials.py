@@ -21,7 +21,7 @@ class VpnCredentials(object):
 
 	def extract_vpn_credential_id(self, json_response):
 
-		data = json.loads(json_response)
+		data = json_response
 		if self.debug:
 			logging.debug("Extract VPN ID: {}".format(data['id']))
 		return data['id']
