@@ -17,7 +17,7 @@ class Locations(object):
 
 	def get_locations(self):
 
-		uri = self.api_url + 'api/v1/locations'
+		uri = self.api_url + 'api/v1/locations?pageSize=1000'
 
 		res = self._perform_get_request(
 			uri,
