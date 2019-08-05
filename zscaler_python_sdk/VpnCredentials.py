@@ -27,9 +27,10 @@ class VpnCredentials(object):
 		return data['id']
 
 
-	def get_vpn_credentials(self):
+	def get_vpn_credentials(self, page_size=100, page_count=1):
 
-		uri = self.api_url + 'api/v1/vpnCredentials?pageSize=1000'
+		uri = self.api_url + 'api/v1/vpnCredentials?pageSize=%s&page=%s' % \
+                             (page_size, page_count)
 
 		res = self._perform_get_request(
 			uri,
